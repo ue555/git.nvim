@@ -1,0 +1,61 @@
+*git.nvim*                                  Git history navigator for Neovim
+
+==============================================================================
+INTRODUCTION                                            *git-history-intro*
+
+git.nvim provides a two-pane commit and branch navigator. It can inspect
+commits, switch branches, enter detached HEAD mode, and create branches from
+selected commits. Selecting a commit automatically shows its metadata, file
+statistics, and color-highlighted patch in Details.
+
+Requires Neovim 0.10 or later and Git 2.23 or later.
+
+==============================================================================
+SETUP                                                    *git-history-setup*
+
+>
+  require("git_history").setup({
+    default_view = "commits",
+    window = {
+      width = 0.9,
+      height = 0.85,
+      list_width = 0.42,
+      border = "rounded",
+    },
+    log = { max_count = 100 },
+    checkout = {
+      confirm = true,
+      allow_dirty = false,
+    },
+    branch = {
+      show_remote = true,
+      allow_dirty = false,
+      allow_delete = true,
+    },
+  })
+<
+
+==============================================================================
+COMMANDS                                              *git-history-commands*
+
+:GitHistory [directory]  Open commit history.
+:GitHistoryFile          Open history for the current file.
+:GitBranches [directory] Open local and remote branches.
+:GitCheckout {hash}      Switch to a detached commit.
+:GitSwitch {branch}      Switch to a branch.
+:GitNewBranch {name}     Create and switch to a branch.
+:GitHistoryBack          Return to the original branch.
+:GitHistoryRefresh       Refresh repository state.
+:GitHistoryClose         Close the interface.
+
+In the commit list, press `l` to focus Details. Press `h` in Details to return
+to the list. Standard Neovim motions such as `j`, `k`, `<C-d>`, `<C-u>`, `gg`,
+and `G` scroll the preview.
+
+==============================================================================
+SAFETY                                                  *git-history-safety*
+
+By default, checkout and branch switching are rejected when the worktree has
+uncommitted changes. The plugin does not reset, stash, or remove files.
+
+vim:tw=78:ts=8:noet:ft=help:norl:

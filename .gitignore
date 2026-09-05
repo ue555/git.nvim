@@ -1,0 +1,40 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Neovim and editor state
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+.nvimlog
+.luarc.json
+.idea/
+.vscode/
+
+# Test and coverage output
+coverage/
+coverage.*
+*.prof
+*.trace
+
+# Generated documentation and tags
+doc/tags
+tags
+
+# Build and temporary directories
+/bin/
+/dist/
+/tmp/
+/.cache/
+
+# Nix build outputs
+result
+result-*
+
+# Operating system files
+.DS_Store
+Thumbs.db
