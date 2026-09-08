@@ -1,9 +1,5 @@
 # git.nvim
 
-> [!WARNING]
-> This plugin is under active development. Its API, configuration, and
-> behavior may change without notice.
-
 A native Neovim commit and branch navigator implemented in Lua 5.1. Browse
 history, inspect commits, switch branches, or move to a selected commit without
 leaving Neovim.
